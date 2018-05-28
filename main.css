@@ -1,0 +1,25 @@
+body{
+    background: mintcream;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    margin: center;
+}
+.block{
+    margin: auto;
+    border-radius: 3px;
+    box-shadow: 3px;
+}
+.btn{
+    background-color: white;
+    text-decoration-line: none;
+    color: black;
+    border-radius: 3px;
+    padding: 2px 4px 2px 4px;
+}
+.btn:hover{
+    background-color: orange;
+    color: white;
+}
