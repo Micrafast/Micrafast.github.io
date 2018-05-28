@@ -1,16 +1,47 @@
 body{
-    background: mintcream;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('background.png');
+    font-family: 'Segoe UI', sans-serif;
 }
 h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     color: black;
-    margin: center;
+    text-align: center;
 }
-.block{
+ul.navi{
+    list-style-type: none;
+    background: orange;
     margin: auto;
+    width: 60%;
+    padding: 0;
+    overflow: hidden;
     border-radius: 3px;
-    box-shadow: 3px;
+    box-shadow: 1px 1px 1px 1px;
+}
+ul.navi li{
+    float: left;
+}
+ul.navi li a{
+    text-decoration: none;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+}
+ul.navi li a.active{
+    background: green;
+}
+ul.navi li a:hover{
+    background-color: greenyellow;
+}
+div.block{
+    background: lightskyblue;
+    margin: auto;
+    width: 60%;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px;
+}
+div.block p{
+    color: white;
 }
 .btn{
     background-color: white;
@@ -18,6 +49,7 @@ h1{
     color: black;
     border-radius: 3px;
     padding: 2px 4px 2px 4px;
+    display: block;
 }
 .btn:hover{
     background-color: orange;
