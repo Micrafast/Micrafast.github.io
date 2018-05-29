@@ -59,7 +59,7 @@ div.block div.diary p{
 }
 .btn{
     background-color: white;
-    text-decoration-line: none;
+    text-decoration: none;
     color: black;
     border-radius: 3px;
     padding: 2px 4px 2px 4px;
