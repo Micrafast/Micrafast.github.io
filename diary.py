@@ -18,10 +18,14 @@ if argv[1] == 'add':
             title = argv[i+1]
         elif arg == '-c':
             context = argv[i+1];
+        elif arg == '-f':
+            infile = open(argv[i+1], 'r')
+            context = infile.read()
+            infile.close()
     def repprocess(match):
         src = match.group(1)
         return '<a href="' + src + '"><img src="' + src +'" /></a>'
-    context = re.sub(r' img: *(.*?) ', repprocess, context)
+    context = re.sub(r'img: *(.*?) ', repprocess, context)
     times = 1
     diaryfilename = filedt + '-1.html'
     while os.path.exists(diaryfilename):
@@ -40,7 +44,7 @@ if argv[1] == 'add':
     indexfile = open('index.html', 'r+')
     index = indexfile.read()
     indexfile.seek(0)
-    index = index.replace('<!-- DIARYADD -->', '<!-- DIARYADD -->' + \
+    index = index.replace('<!-- DIARYADD -->', '<!-- DIARYADD -->\n' + \
     '<div class="subblock"><h3>' + title + '</h3><p>'+context[:10].replace('<', '').replace('>', '')+'...</p><a href="'+\
     diaryfilename+'" class="btn">查看详情</a></div>')
     indexfile.write(index)
