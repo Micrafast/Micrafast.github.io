@@ -18,20 +18,15 @@ if argv[1] == 'add':
             title = argv[i+1]
         elif arg == '-c':
             context = argv[i+1];
-        elif arg == '-f':
-            infile = open(argv[i+1], 'r')
-            context = infile.read()
-            infile.close()
     def repprocess(match):
         src = match.group(1)
         return '<a href="' + src + '"><img src="' + src +'" /></a>'
-    context = re.sub(r'img: *(.*?) ', repprocess, context)
+    context = re.sub(r' img: *(.*?) ', repprocess, context)
     times = 1
-    diaryfilename = filedt + '-1.html'
+    diaryfilename = 'diary/' + filedt + '-1.html'
     while os.path.exists(diaryfilename):
         times+=1
-        diaryfilename = filedt + '-' + str(times) + '.html'
-    diaryfilename = 'diary/' + diaryfilename
+        diaryfilename = 'diary/' + filedt + '-' + str(times) + '.html'
     shutil.copyfile('diary/demo.html', diaryfilename)
     diaryfile = open(diaryfilename, 'r+')
     diary = diaryfile.read();
