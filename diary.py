@@ -3,6 +3,7 @@ import sys
 import os
 import re
 import shutil
+import markdown
 from datetime import date
 
 argv = sys.argv
@@ -17,7 +18,10 @@ if argv[1] == 'add':
         if arg == '-t':
             title = argv[i+1]
         elif arg == '-c':
-            context = argv[i+1];
+            context = '<p>'+argv[i+1]+'<\p>';
+        elif arg == '-f':
+            ctxfile = open(argv[i+1], "r")
+            context = markdown.markdown(ctxfile.read())
     def repprocess(match):
         src = match.group(1)
         return '<a href="' + src + '"><img src="' + src +'" /></a>'
@@ -29,10 +33,10 @@ if argv[1] == 'add':
         diaryfilename = 'diary/' + filedt + '-' + str(times) + '.html'
     shutil.copyfile('diary/demo.html', diaryfilename)
     diaryfile = open(diaryfilename, 'r+')
-    diary = diaryfile.read();
+    diary = diaryfile.read()
     diaryfile.seek(0)
     diary = diary.replace('<!-- CONTEXT -->', '<h3>'+title+'</h3>'+\
-    '<h6>'+dt+'</h6><p>'+context+'</p>')
+    '<h6>'+dt+'</h6>'+context)
     diaryfile.write(diary)
     diaryfile.flush()
     diaryfile.close()
@@ -40,7 +44,7 @@ if argv[1] == 'add':
     index = indexfile.read()
     indexfile.seek(0)
     index = index.replace('<!-- DIARYADD -->', '<!-- DIARYADD -->\n' + \
-    '<div class="subblock"><h3>' + title + '</h3><p>'+context[:10].replace('<', '').replace('>', '')+'...</p><a href="'+\
+    '<div class="subblock"><h3>' + title + '</h3><p>'+context[:10].replace('<', '&lt;').replace('>', '&gt;')+'</p>...<a href="'+\
     diaryfilename+'" class="btn">查看详情</a></div>')
     indexfile.write(index)
     indexfile.flush()

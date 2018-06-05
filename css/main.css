@@ -11,7 +11,7 @@ ul.navi{
     list-style-type: none;
     background: greenyellow;
     margin: auto;
-    width: 60%;
+    width: 80%;
     padding: 0;
     overflow: hidden;
     border-radius: 3px;
@@ -28,7 +28,7 @@ ul.navi li a{
     padding: 14px 16px;
 }
 ul.navi li a.active{
-    background: url('../photo/greybackground.png');
+    background: grey;
     color: white;
 }
 ul.navi li a:hover{
@@ -36,9 +36,9 @@ ul.navi li a:hover{
     color: white;
 }
 div.block{
-    background: url('../photo/greybackground.png');
+    background: grey;
     margin: auto;
-    width: 58%;
+    width: 78%;
     border-radius: 3px;
     padding: 10px 1% 15px 1%;
     margin-top: 10px;
@@ -52,12 +52,26 @@ div.block div.subblock{
     border-radius: 3px;
     box-shadow: 1px 1px 1px 1px;
     padding: 5px 5px 5px 5px;
+    margin-top: 7px;
+}
+div.block div.text{
+    background: white;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px;
+    padding: 5px 5px 5px 5px;
     margin-top: 10px;
 }
 div.block div.subblock p{
     color: black;
 }
+div.block div.text p{
+    color: black;
+}
 div.block div.subblock img{
+    width:100%;
+    height:50%;
+}
+div.block div.text img{
     width:100%;
     height:50%;
 }
@@ -66,13 +80,11 @@ div.block div.subblock img{
     text-decoration: none;
     color: black;
     border-radius: 3px;
-    padding: 2px 4px 2px 4px;
-    width: 10%;
+    padding: 3px 5px 3px 5px;
     margin: auto;
-    display: block;
     text-align: center;
 }
 .btn:hover{
-    background: url('../photo/greybackground.png');
+    background: grey;
     color: white;
 }
