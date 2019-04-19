@@ -6,7 +6,13 @@ import shutil
 import markdown
 from datetime import date
 
+
 argv = sys.argv
+if len(argv) == 1:
+    print("Wrong arguments!")
+    exit()
+
+
 if argv[1] == 'add':
     title = '';
     context = '';
@@ -18,7 +24,7 @@ if argv[1] == 'add':
         if arg == '-t':
             title = argv[i+1]
         elif arg == '-c':
-            context = '<p>'+argv[i+1]+'<\p>';
+            context = '<p>'+argv[i+1]+'</p>';
         elif arg == '-f':
             ctxfile = open(argv[i+1], "r")
             context = markdown.markdown(ctxfile.read())
@@ -44,9 +50,9 @@ if argv[1] == 'add':
     index = indexfile.read()
     indexfile.seek(0)
     index = index.replace('<!-- DIARYADD -->', '<!-- DIARYADD -->\n' + \
-    '<div class="subblock"><h3>' + title + '</h3><p>'+context[:10].replace('<', '&lt;').replace('>', '&gt;')+'</p>...<a href="'+\
-    diaryfilename+'" class="btn">查看详情</a></div>')
+        '<div class="subblock"><h3>' + title + '</h3><p>'+context[:10].replace('<', '&lt;').replace('>', '&gt;')+'</p>...<a href="'+\
+        diaryfilename+'" class="btn">查看详情</a></div>')
     indexfile.write(index)
     indexfile.flush()
     indexfile.close()
-
+    
